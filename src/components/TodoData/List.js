@@ -2,14 +2,13 @@ import Todo from "./Todo";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
-function List() {
+function List(props) {
 
     const [Data, setData] = useState(null);
 
     useEffect( () => {
        setData(getTodos())
     }, []);
-    
 
     function getTodos() {
         fetch('http://localhost:5000/tasks')
@@ -31,7 +30,6 @@ function List() {
             })
     }
     
-
     return (
         <table className="table">
             <thead>
@@ -42,9 +40,9 @@ function List() {
                 </tr>
             </thead>
             <tbody>
-                {Data && Data.map((todo) => (
-                    <Todo  key={todo.id} id={todo.id} title={todo.title} deleteAction={ () => DeleteTodo(todo.id) } /> 
-                ))}
+                { Data && Data.map((todo) => (
+                    <Todo  key={todo.id} id={todo.id} title={todo.title} deleteAction={ () => DeleteTodo(todo.id) } editAction= {() => props.EditTodo(todo.id)} /> 
+                )) }
             </tbody>
         </table>
     );

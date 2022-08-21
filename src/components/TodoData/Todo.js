@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Todo(props) {
 
@@ -11,7 +12,11 @@ function Todo(props) {
                 {props.title}
             </td>
             <td>
-                <button className='btn btn-danger' onClick={props.deleteAction}>Delete</button>
+                <Link to={props.id}>
+                    Edit
+                    {/* <button className='btn btn-info ml-3'>Edit</button> */}
+                </Link>
+                <button className='btn btn-danger mr-3' onClick={props.deleteAction}>Delete</button>
             </td>
         </tr>
     );
