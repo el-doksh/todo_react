@@ -1,0 +1,95 @@
+
+//NOTES:
+
+//each component should return JSX syntax code 
+ex : 
+const button = () => {
+    return (
+        <button onClick="clickHandler" className"btn btn-primary">
+            Hellooooooooooo btn!!
+        </button>
+    )
+}
+
+// all event handlers on any html element should be start with "on" then "Captial letter first of event"
+ex : "onClick", "onChange", ....etc
+
+// event function names momekn tkon end with "Handler"  (naming convesnion but its up to you)
+ex: "clickHandler", "changeHandler" ...etc
+
+// to call function in JSX you have to call it without () ...
+ex : <button onClick="clickHandler"> </button>
+
+// you are free to define function with ES6 or normal JS
+ex : 
+function button() { //JS
+    console.log('hello')
+}
+OR 
+const button = () => {  //ES6
+    console.log('hello')
+}
+
+// You can call a component and pass props to it like this
+ex :
+<Button text='Edit' class='btn-primary'/>
+
+and receive it in the component like this:
+const Button = (props) => {
+    <button className={props.class}>
+        {props.text}
+    </button>
+}
+
+//useState "Hook" : is one of important hooks at react we use it when we want to change a value
+to a specfic variable and re-evaluate the react component again
+and useState imported from 'react' should be use only in function of component not outside the function
+of component or in a nested function of component 
+ex: 
+
+import { useState } from "react";
+const ButtonState = (props) => {
+
+    const [text, setText] = useState(props.text);
+    
+    const clickHandler = () => {
+        setText('Update title');
+    };
+
+    return (
+        <button className={"btn " + props.class} onClick={clickHandler}>
+            {text}
+        </button>
+    );
+};
+when we use useState it re-evaluate the component 
+notes :
+// var title = 'test'; //this called a regular variable (can't be changed by react)
+// const [title, setTitle] = useState('test') //this called a special variable (could be changed by react)
+States are seperated per component (y3ny kol component leh el useState bt3to w msh btreflect 3la el other components)
+// States are super important concepts and it changes UI variables
+
+//props can be passed only from parent to child components
+
+//Condition Approaches:
+1- in function js:
+const data = <p>No content found</p>
+if (props.data > 0) {
+    data = props.data
+}
+return (
+    <div>{data} </div>
+)
+2- in return function 1st way:
+return (
+    <div>{props.data > 0 ? props.data : <p>No content found</p>}
+    </div>
+)
+3- in return function 2nd way:
+return (
+    <div>
+        {props.data > 0 && props.data}
+        {props.data == 0 && <p>No content found</p>}
+    </div>
+)
+

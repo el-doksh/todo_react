@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-const Button = (props) => {
+const ButtonState49 = (props) => {
 
-    var text = props.text;
+    const [text, setText] = useState(props.text);
+    
     const clickHandler = () => {
-        text = 'waw';
-        console.log(text);
+        setText('Update title');
     };
 
     return (
@@ -16,16 +17,16 @@ const Button = (props) => {
 };
 
 // Default props values
-Button.defaultProps = {
+ButtonState49.defaultProps = {
     'text' : 'Click me',
     'class' : 'btn-primary'
 }
 
 // Default props types validations
-Button.propTypes = {
+ButtonState49.propTypes = {
     'text' : PropTypes.string.isRequired,
     'class' : PropTypes.string.isRequired,
     'clickAction' : PropTypes.func
 }
 
-export default Button;
+export default ButtonState49;
