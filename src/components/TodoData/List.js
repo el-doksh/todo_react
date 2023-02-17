@@ -28,6 +28,7 @@ function List(props) {
             }).then ((res) => {
                 getTodos()
             })
+            
     }
     
     return (
