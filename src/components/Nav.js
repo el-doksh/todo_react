@@ -13,6 +13,9 @@ function Nav() {
                 <li>
                     <NavLink className='active' to='/products/3'>Product Details</NavLink>
                 </li>
+                <li>
+                    <NavLink className='active' to='/form-submission'>16 - form submission</NavLink>
+                </li>
             </ul>
         </nav>
     );

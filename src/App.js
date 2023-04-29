@@ -5,7 +5,9 @@ import List267 from './components/Lessons/List267';
 import Home from './components/Lessons/Pages/Home';
 import Products from './components/Lessons/Pages/Products';
 import Show from './components/Lessons/products/Show';
+import Modal from './components/Modal/Modal';
 import Nav from './components/Nav';
+import FormSubmission from './components/Lessons/16-FormSubmisstion/FormSubmission';
 
 const App = () => {
   let data = [
@@ -46,6 +48,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<List267 data={list}  />} />
               <Route path="/products/:id" element={<Show />} />
+              <Route path="/form-submission" element={<FormSubmission />} />
           </Routes>
         </div>  
       </div>  
