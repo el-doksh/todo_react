@@ -47,7 +47,7 @@ const App = () => {
               />
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<List267 data={list}  />} />
-              <Route path="/products/:id" element={<Show />} />
+              {/* <Route path="/products/:id" element={<Show />} /> */}
               <Route path="/form-submission" element={<FormSubmission />} />
           </Routes>
         </div>  
